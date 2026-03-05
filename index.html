@@ -1,37 +1,132 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Trello Clone</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinkedIn Feed Redesign Clone</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<h1>Trello Clone</h1>
+<header class="navbar">
+  <div class="container navbar-content">
+   <div class="logo">LinkedIn</div>
+    <input type="text" class="search" placeholder="Search" />
+    <nav class="nav-links">
+      <a href="#" class="nav-item active" aria-current="page">
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path fill="#000" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        Feed
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle fill="#000" cx="12" cy="12" r="10"/></svg>
+        Network
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><rect fill="#000" x="4" y="4" width="16" height="16" rx="2"/></svg>
+        Jobs
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path fill="#000" d="M12 3a9 9 0 109 9h-9V3z"/></svg>
+        Messages
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path fill="#000" d="M18 2h-3v4H9V2H6v4H3v6h18V2z"/></svg>
+        Notifications
+      </a>
+    </nav>
+    <div class="profile-menu" aria-label="User menu" tabindex="0">
+      <img src="https://i.pravatar.cc/40" alt="User profile" />
+      <svg class="dropdown-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path fill="#333" d="M7 10l5 5 5-5z"/></svg>
+    </div>
+  </div>
+</header>
+
+<main class="container main-grid">
+
+  <!-- Left Sidebar -->
+  <aside class="sidebar-left">
+    <div class="profile-card">
+      
+      <h2>Mangesh Igave</h2>
+      <p class="title">Engineering Student</p>
+      <ul class="profile-stats">
+        <li><strong>237</strong> profile views</li>
+        <li>Saved items</li>
+        <li>Your statistics</li>
+      </ul>
+      <nav class="sidebar-links">
+        <a href="#">Groups</a>
+        <a href="#">Hashtags</a>
+        <a href="#">My pages</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Feed Section -->
+  <section class="feed">
+    <section class="post-creator">
+      <textarea placeholder="Write a post" aria-label="Write a post"></textarea>
+      <div class="post-actions">
+        <button class="post-btn" id="postBtn" disabled>Post</button>
+      </div>
+    </section>
+
+    <section class="posts" id="postsList">
+      <!-- Posts will be dynamically inserted here -->
+    </section>
+  </section>
+
+  <!-- Right Sidebar -->
+  <aside class="sidebar-right">
+    <div class="recommended-profiles card">
+      <h3>Recommended profiles</h3>
+      <ul>
+        <li>
+          
+          <div>
+            <strong>Amol Igave</strong>
+            <p>M Pharma Student</p>
+          </div>
+          <button class="add-btn" aria-label="Add Conrad Alken">+</button>
+        </li>
+        <li>
+          
+          <div>
+            <strong>Tejas Ekalre</strong>
+            <p>General Manager</p>
+          </div>
+          <button class="add-btn" aria-label="Add Norman Aitoc">+</button>
+        </li>
+        <li>
+          
+          <div>
+            <strong>Soham Shinde</strong>
+            <p>Software Developer</p>
+          </div>
+          <button class="add-btn" aria-label="Add Beth Anderson">+</button>
+        </li>
+        <li>
+          
+          <div>
+            <strong>Mahesh thakur</strong>
+            <p>Software Engineer</p>
+          </div>
+          <button class="add-btn" aria-label="Add Maya Andrio">+</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="promoted card">
+      <img src="https://picsum.photos/300/180" alt="Promoted job ad" />
+      <div class="promo-text">
+        <p>Your dream job is closer than you think</p>
+        <button class="see-jobs-btn">See jobs</button>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
 <script src="script.js"></script>
-
-<div class="board">
-
-<div class="column" id="todo">
-<h2>Todo</h2>
-<div class="task-list"></div>
-<button onclick="addTask('todo')">Add Task</button>
-</div>
-
-<div class="column" id="doing">
-<h2>Doing</h2>
-<div class="task-list"></div>
-</div>
-
-<div class="column" id="done">
-<h2>Done</h2>
-<div class="task-list"></div>
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
 </body>
 </html>

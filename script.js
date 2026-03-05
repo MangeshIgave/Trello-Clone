@@ -1,45 +1,80 @@
-function addTask(column){
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-let text = prompt("Enter task")
+function savePosts(){
+localStorage.setItem("posts", JSON.stringify(posts));
+}
 
-if(!text) return
+function createPost(){
 
-let task=document.createElement("div")
+let text = document.getElementById("postText").value.trim();
 
-task.className="task"
-task.innerText=text
-task.draggable=true
+if(text === "") return;
 
-task.addEventListener("dragstart",dragStart)
+posts.unshift({
+text:text,
+likes:23,
+comments:15
+});
 
-document.querySelector(#${column} .task-list).appendChild(task)
+document.getElementById("postText").value="";
+
+savePosts();
+renderPosts();
 
 }
 
-function dragStart(e){
+function renderPosts(){
 
-e.dataTransfer.setData("text",e.target.innerText)
+let feed = document.getElementById("feed");
+
+feed.innerHTML = "";
+
+posts.forEach((p,index)=>{
+
+let div = document.createElement("div");
+
+div.className="post";
+
+div.innerHTML = `
+<div class="post-header">
+
+<img src="https://i.pravatar.cc/45">
+
+<div>
+<b>James Smith</b>
+<div style="font-size:12px;color:gray">UX Designer</div>
+</div>
+
+</div>
+
+<p>${p.text}</p>
+
+<img src="https://picsum.photos/500/250?random=${index}">
+
+<div class="post-actions">
+
+<span onclick="likePost(${index})">❤️ ${p.likes}</span>
+
+<span>💬 ${p.comments}</span>
+
+<span>↗ Share</span>
+
+</div>
+`;
+
+feed.appendChild(div);
+
+});
 
 }
 
-document.querySelectorAll(".task-list").forEach(list=>{
+function likePost(index){
 
-list.addEventListener("dragover",e=>e.preventDefault())
+posts[index].likes++;
 
-list.addEventListener("drop",function(e){
+savePosts();
+renderPosts();
 
-let text=e.dataTransfer.getData("text")
+}
 
-let task=document.createElement("div")
-
-task.className="task"
-task.innerText=text
-task.draggable=true
-
-task.addEventListener("dragstart",dragStart)
-
-this.appendChild(task)
-
-})
-
-})
+renderPosts();
